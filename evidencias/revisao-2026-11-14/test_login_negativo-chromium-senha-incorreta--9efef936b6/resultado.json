@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_negativo[chromium-senha-incorreta]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.6749
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.4082
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0805
+    }
+  },
+  "resultado": "passed"
+}

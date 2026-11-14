@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_valido[chromium-enter]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.7962
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.4499
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0727
+    }
+  },
+  "resultado": "passed"
+}

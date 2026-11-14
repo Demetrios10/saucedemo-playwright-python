@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_cart.py::test_remover_produto[chromium]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 3.3656
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.6577
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.097
+    }
+  },
+  "resultado": "passed"
+}

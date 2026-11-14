@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_negativo[chromium-campos-vazios]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.852
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.4634
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0821
+    }
+  },
+  "resultado": "passed"
+}

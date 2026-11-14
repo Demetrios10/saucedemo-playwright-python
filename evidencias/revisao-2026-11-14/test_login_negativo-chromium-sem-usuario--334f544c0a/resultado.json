@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_negativo[chromium-sem-usuario]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.8644
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.3852
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0952
+    }
+  },
+  "resultado": "passed"
+}

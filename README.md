@@ -74,3 +74,4 @@ HTML e JUnit ficam em `artifacts/`. Não são gravados cookies, sessão ou trace
 O site é externo e pode mudar ou ficar indisponível. O subtotal é comparado aos preços do catálogo; o total ao subtotal mais o imposto exibido. Não se verificam pagamento real, entrega física ou backend de produção.
 
 [Arquitetura](docs/ARQUITETURA.md) · [Plano de testes](docs/CENARIOS.md)
+

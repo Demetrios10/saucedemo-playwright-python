@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_valido[chromium-botao]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.6512
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.5724
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0775
+    }
+  },
+  "resultado": "passed"
+}

@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_login.py::test_login_negativo[chromium-usuario-bloqueado]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 0.6113
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.3784
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.4457
+    }
+  },
+  "resultado": "passed"
+}

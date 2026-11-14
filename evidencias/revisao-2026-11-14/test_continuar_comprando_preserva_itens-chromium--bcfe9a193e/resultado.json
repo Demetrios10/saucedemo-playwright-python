@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_cart.py::test_continuar_comprando_preserva_itens[chromium]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 1.0159
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 0.3369
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0211
+    }
+  },
+  "resultado": "passed"
+}

@@ -1,0 +1,18 @@
+{
+  "cenario": "tests/test_checkout.py::test_finalizar_compra[chromium-5-produtos]",
+  "fases": {
+    "setup": {
+      "resultado": "passed",
+      "duracao_segundos": 1.0714
+    },
+    "call": {
+      "resultado": "passed",
+      "duracao_segundos": 2.547
+    },
+    "teardown": {
+      "resultado": "passed",
+      "duracao_segundos": 0.0603
+    }
+  },
+  "resultado": "passed"
+}
