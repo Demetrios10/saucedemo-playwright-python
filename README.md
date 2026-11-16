@@ -75,3 +75,7 @@ O site é externo e pode mudar ou ficar indisponível. O subtotal é comparado a
 
 [Arquitetura](docs/ARQUITETURA.md) · [Plano de testes](docs/CENARIOS.md)
 
+
+## Revisão e manutenção
+
+[Revisão de 16/11/2026](evidencias/REVISAO-2026-11-16.md): resultados, mudanças e pendências. Os resultados históricos são preservados; o estado de cada nova execução pode ser consultado na aba **Actions**.
