@@ -1,6 +1,7 @@
 name: SauceDemo E2E
 on:
   workflow_dispatch:
+  pull_request:
 permissions:
   contents: read
 jobs:
