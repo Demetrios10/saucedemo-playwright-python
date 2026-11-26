@@ -9,6 +9,8 @@ from data.products import CUSTOMER, PRODUCTS
 
 pytestmark = pytest.mark.checkout
 
+ZERO = Decimal("0.00")
+
 
 @pytest.mark.parametrize("quantity", [1, 2, 3, 4, 5], ids=lambda n: f"{n}-produtos")
 def test_finalizar_compra(inventory, quantity, evidence_step):
@@ -33,8 +35,8 @@ def test_finalizar_compra(inventory, quantity, evidence_step):
     for name in selected:
         assert overview.product(name).price_value() == prices[name]
     subtotal, tax, total = overview.amounts()
-    assert subtotal == sum(prices.values(), Decimal("0.00"))
-    assert tax >= Decimal("0.00")
+    assert subtotal == sum(prices.values(), ZERO)
+    assert tax >= ZERO
     assert total == subtotal + tax
     evidence_step("02-resumo")
 
@@ -49,7 +51,7 @@ def test_finalizar_compra(inventory, quantity, evidence_step):
 
 
 @pytest.mark.parametrize(
-    "first_name,last_name,postal_code,error",
+    ("first_name", "last_name", "postal_code", "error"),
     [
         ("", "", "", "First Name is required"),
         ("Pessoa", "", "", "Last Name is required"),
@@ -57,9 +59,7 @@ def test_finalizar_compra(inventory, quantity, evidence_step):
     ],
     ids=["sem-nome", "sem-sobrenome", "sem-cep"],
 )
-def test_checkout_campos_obrigatorios(
-    inventory, first_name, last_name, postal_code, error
-):
+def test_checkout_campos_obrigatorios(inventory, first_name, last_name, postal_code, error):
     inventory.add_products(PRODUCTS[:1])
     information = inventory.open_cart().checkout()
     information.continue_with(first_name, last_name, postal_code)

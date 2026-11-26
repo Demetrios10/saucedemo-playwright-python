@@ -1,19 +1,10 @@
 """Carrinho e navegação para checkout."""
 
-from pages.base_page import BasePage
-from pages.product_component import ProductComponent
+from pages.base_page import ProductListPage
 
 
-class CartPage(BasePage):
-    def __init__(self, page):
-        super().__init__(page)
-        self.items = page.get_by_test_id("inventory-item")
-        self.names = page.get_by_test_id("inventory-item-name")
-
-    def product(self, name):
-        return ProductComponent(self.page, name)
-
-    def remove(self, name):
+class CartPage(ProductListPage):
+    def remove(self, name: str) -> "CartPage":
         self.product(name).remove_button.click()
         return self
 

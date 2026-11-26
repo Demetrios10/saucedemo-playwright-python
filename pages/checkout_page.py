@@ -1,17 +1,23 @@
 """Informações, resumo e confirmação do pedido de demonstração."""
 
-from pages.base_page import BasePage
-from pages.product_component import ProductComponent, money
+from decimal import Decimal
+
+from playwright.sync_api import Page
+
+from pages.base_page import BasePage, ProductListPage
+from support.money import money
 
 
 class CheckoutInformationPage(BasePage):
-    def __init__(self, page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
         self.first_name = page.get_by_test_id("firstName")
         self.last_name = page.get_by_test_id("lastName")
         self.postal_code = page.get_by_test_id("postalCode")
 
-    def continue_with(self, first_name="", last_name="", postal_code=""):
+    def continue_with(
+        self, first_name: str = "", last_name: str = "", postal_code: str = ""
+    ) -> "CheckoutOverviewPage":
         self.first_name.fill(first_name)
         self.last_name.fill(last_name)
         self.postal_code.fill(postal_code)
@@ -25,30 +31,27 @@ class CheckoutInformationPage(BasePage):
         return CartPage(self.page)
 
 
-class CheckoutOverviewPage(BasePage):
-    def __init__(self, page):
+class CheckoutOverviewPage(ProductListPage):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
-        self.items = page.get_by_test_id("inventory-item")
-        self.names = page.get_by_test_id("inventory-item-name")
         self.subtotal = page.get_by_test_id("subtotal-label")
         self.tax = page.get_by_test_id("tax-label")
         self.total = page.get_by_test_id("total-label")
 
-    def product(self, name):
-        return ProductComponent(self.page, name)
-
-    def amounts(self):
-        return tuple(
+    def amounts(self) -> tuple[Decimal, Decimal, Decimal]:
+        """Retorna (subtotal, imposto, total) já convertidos em centavos."""
+        subtotal, tax, total = (
             money(field.inner_text()) for field in (self.subtotal, self.tax, self.total)
         )
+        return subtotal, tax, total
 
-    def finish(self):
+    def finish(self) -> "CheckoutCompletePage":
         self.page.get_by_test_id("finish").click()
         return CheckoutCompletePage(self.page)
 
 
 class CheckoutCompletePage(BasePage):
-    def __init__(self, page):
+    def __init__(self, page: Page) -> None:
         super().__init__(page)
         self.heading = page.get_by_test_id("complete-header")
         self.message = page.get_by_test_id("complete-text")
