@@ -4,7 +4,7 @@ from decimal import Decimal, InvalidOperation
 
 import pytest
 
-from pages.product_component import money
+from support.money import money
 
 
 @pytest.mark.parametrize(

@@ -1,20 +1,19 @@
 """Capturas dos marcos da compra."""
 
-import re
-
 import pytest
 
-from support.evidence import _folder
+from support.evidence import _folder, safe_name
+
+STEP_SCREENSHOT_TIMEOUT_MS = 10_000
 
 
 @pytest.fixture
 def evidence_step(request, page):
-    def capture(label):
-        name = re.sub(r"[^a-zA-Z0-9_-]", "-", label)
+    def capture(label: str) -> None:
         page.screenshot(
-            path=str(_folder(request.node) / f"{name}.png"),
+            path=str(_folder(request.node) / f"{safe_name(label)}.png"),
             mask=[page.locator("input, textarea")],
-            timeout=10000,
+            timeout=STEP_SCREENSHOT_TIMEOUT_MS,
         )
 
     return capture

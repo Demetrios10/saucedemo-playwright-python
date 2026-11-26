@@ -9,17 +9,20 @@ from settings import settings
 
 pytestmark = pytest.mark.login
 
+INVENTORY_URL = re.compile(r"/inventory\.html$")
+CATALOGUE_SIZE = 6
+
 
 @pytest.mark.parametrize("use_enter", [False, True], ids=["botao", "enter"])
 def test_login_valido(login_page, use_enter):
     inventory = login_page.login(settings.username, settings.password, use_enter)
     expect(inventory.title).to_have_text("Products")
-    expect(inventory.page).to_have_url(re.compile(r"/inventory\.html$"))
-    expect(inventory.items).to_have_count(6)
+    expect(inventory.page).to_have_url(INVENTORY_URL)
+    expect(inventory.items).to_have_count(CATALOGUE_SIZE)
 
 
 @pytest.mark.parametrize(
-    "username,password,message",
+    ("username", "password", "message"),
     [
         ("", "", "Username is required"),
         ("", "secret_sauce", "Username is required"),
@@ -41,7 +44,7 @@ def test_login_negativo(login_page, username, password, message):
     login_page.login(username, password)
     expect(login_page.error).to_contain_text(message)
     expect(login_page.username_input).to_be_visible()
-    expect(login_page.page).not_to_have_url(re.compile(r"/inventory\.html$"))
+    expect(login_page.page).not_to_have_url(INVENTORY_URL)
 
 
 def test_logout(inventory):
